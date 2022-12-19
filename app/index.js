@@ -39,11 +39,13 @@ async function run() {
 
     if (!parseInt(lekce) || !parseInt(znaky) || !parseFloat(rychlost) || !parseFloat(znamka) || !parseFloat(limitChybovost) || !parseInt(limitRychlost)) {
         console.log("Parse Error: Chybně zadané hodnoty.. nejseš moc prestižní student jako")
+        prompt()
         return
     }
 
     if (parseInt(lekce) <= 0 || parseInt(lekce) > 999 || name.match(regexp) || parseInt(rychlost) > 9999 || 0 > znamka || znamka > 2 || 0 > chybovost || chybovost > chybovostList.length) {
         console.log("Retardace Error: Chybně zadané hodnoty.. nejseš moc prestižní student jako")
+        prompt()
         return
     }
     rychlost = parseFloat(rychlost).toFixed(1).toString()
