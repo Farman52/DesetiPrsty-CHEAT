@@ -4,7 +4,9 @@ JAK TO POUŽÍT:
 
 !!!!!!!!!! POVINNĚ MÍT NAINSTALOVANÝ NODE.JS (https://nodejs.org/en/) !!!!!!!!!!!!!
 
-Pokud máte nainstalovaný, tak spusťte program DesetiPrstyHack.bat
+!!!!!!!!! SLOŽKU EXTRAHUJTE Z ZIP NA NORMÁLNÍ SLOŽKU !!!!!!!!!!!!!!!!
+
+Pokud máte nainstalovaný a extrahovaný, tak spusťte program DesetiPrstyHack.bat
 
 Obrázky se pak ukládají do složky FinalniObrazky
 
