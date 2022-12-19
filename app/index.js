@@ -1,6 +1,7 @@
 const prompt = require('prompt-sync') ();
 const {Canvas, loadImage, FontLibrary} = require('skia-canvas');
 const fs = require('fs');
+const path = require('path');
 const date = new Date();
 const dateOptions = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
 
@@ -170,8 +171,8 @@ async function run() {
         ctx.drawImage(opsanoImg, 464+opsanoLength, symbol == '0' ? 246 : 247)
         opsanoLength += opsanoImg.width
     }
-
-
+    
+    if (!fs.existsSync('./FinalniObrazky/')) fs.mkdir(path.join(__dirname, '../FinalniObrazky'), (e) => {})
     let files = fs.readdirSync('./FinalniObrazky/').length
 
     await canvas.saveAs(`FinalniObrazky/${files+1}.png`)
