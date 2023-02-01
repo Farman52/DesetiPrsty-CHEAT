@@ -2,8 +2,6 @@ const prompt = require('prompt-sync') ();
 const {Canvas, loadImage, FontLibrary} = require('skia-canvas');
 const fs = require('fs');
 const path = require('path');
-const date = new Date();
-const dateOptions = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
 
 console.log(`________  _______   ________  _______  _________  ___  ________  ________  ________  _________    ___    ___ 
 |\\   ___ \\|\\  ___ \\ |\\   ____\\|\\  ___ \\|\\___   ___\\\\  \\|\\   __  \\|\\   __  \\|\\   ____\\|\\___   ___\\ |\\  \\  /  /|
@@ -88,7 +86,10 @@ async function run() {
             }
         }
         let celkovyCas = celkovyCasList.join(':') 
-        let datum = date.toLocaleDateString('pl-PL', dateOptions).replace(',', '')
+
+        const date = new Date();
+        const dateOptions = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+        let datum = date.toLocaleDateString('fr-CH', dateOptions)
 
         let canvas = new Canvas(649, 423);
         let ctx = canvas.getContext("2d");
