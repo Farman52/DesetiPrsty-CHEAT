@@ -1,5 +1,5 @@
 ! ODMÍTNUTÍ ODPOVĚDNOSTI ! 
-Neberu odpovědnost za jakékoli použití programu účastníkem pro účely, které by mohly účastníka zvýhodnit nebo, při kterých by účastník mohl zfalšovávat úkoly/lekce/testy či podvádět při nich, program je určen pouze pro zábavné či vzdělávací účely.
+Já, autor programu, neberu odpovědnost za jakékoli použití programu účastníkem pro účely, které by mohly účastníka zvýhodnit nebo, při kterých by účastník mohl zfalšovávat úkoly/lekce/testy či podvádět při nich, program je určen pouze pro zábavné či vzdělávací účely.
 
 JAK TO POUŽÍT:
 
