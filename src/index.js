@@ -52,6 +52,26 @@ async function run() {
             name = prompt("Napiš tvoje uživatelské jméno (POUZE ČÍSLA A PÍSMENA BEZ DIAKRATIKY): ");
             fs.writeFileSync('./src/name.json', JSON.stringify({name: name}, null, 4))
         }
+        let customDatum;
+        if (prompt("Chceš použít vlastní datum? (Y/N): ").toLowerCase() == "y") {
+            customDatum = prompt("Napiš datum ve formátu 'DD:MM:YYYY' (např. 02.03.2023): ").split(".")
+            for (let i in customDatum) {
+                if (customDatum[i].length < 2) {
+                    customDatum[i] = "0" + customDatum[i]
+                }
+            }
+            customDatum = customDatum.join(".")
+        }
+        let customTime;
+        if (prompt("Chceš použít vlastní čas? (Y/N): ").toLowerCase() == "y") {
+            customTime = prompt("Napiš čas ve formátu 'hh:mm:ss' (např. 15:07:09): ").split(":")
+            for (let i in customTime) {
+                if (customTime[i].length < 2) {
+                    customTime[i] = "0" + customTime[i]
+                }
+            }
+            customTime = customTime.join(":")
+        }
 
 
         if (!parseInt(lekce) || !parseInt(znaky) || !parseFloat(rychlost) || !parseFloat(znamka) || !parseFloat(limitChybovost) || !parseInt(limitRychlost)) {
@@ -89,7 +109,7 @@ async function run() {
 
         const date = new Date();
         const dateOptions = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-        let datum = date.toLocaleDateString('fr-CH', dateOptions)
+        let datum = customDatum ? customTime ? `${customDatum} ${customTime}` : `${customDatum} ${date.toLocaleDateString("fr-CH", dateOptions).split(" ")[1]}` : customTime ? `${date.toLocaleTimeString("fr-CH", dateOptions).split(" ")[0]} ${customTime}` : date.toLocaleDateString('fr-CH', dateOptions)
 
         let canvas = new Canvas(649, 423);
         let ctx = canvas.getContext("2d");
