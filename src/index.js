@@ -41,16 +41,31 @@ async function run() {
         let chybovost = prompt(`Napiš pořadí té chybovosti (například jestli chceš druhé, tak napiš 2): `)
         console.log()
         let nameJSON = JSON.parse(fs.readFileSync('./src/name.json', 'utf8'))
-        let useNameBool;
+        if (nameJSON instanceof Object && !(nameJSON instanceof Array)) nameJSON = [nameJSON.name]
         let name;
-        if (nameJSON.name) {
-            let useName = prompt(`Použít předešlé jméno '${nameJSON.name}'? (Y/N): `)
-            if (useName.toLowerCase() == 'y' || useName.toLowerCase() == 'a') useNameBool = true
+        while (nameJSON.length) {
+            console.log("Vyber si z předešlých jmen:")
+            for (let i = 0; i<nameJSON.length; i++) {
+                console.log(`${i}: ${nameJSON[i]}`)
+            }
+            console.log()
+            let useName = prompt("Napiš pořadí jména, anebo napiš 'edit' pro odstranění nebo přidání jména na seznam: ")
+            if (useName.toLowerCase() == "edit") {
+                console.log()
+                let addName = prompt("Napiš jméno, které chceš přidat nebo odebrat: ")
+                console.log()
+                if (nameJSON.includes(addName)) nameJSON.splice(nameJSON.indexOf(addName), 1)
+                else nameJSON.push(addName)
+                fs.writeFileSync('./src/name.json', JSON.stringify(nameJSON, null, 4))
+            }
+            else if (parseInt(useName) <= nameJSON.length-1 && parseInt(useName) >= 0) {
+                name = nameJSON[parseInt(useName)]
+                break
+            }
         }
-        if (useNameBool) name = nameJSON.name
-        else {
+        if (!nameJSON.length) {
             name = prompt("Napiš tvoje uživatelské jméno (POUZE ČÍSLA A PÍSMENA BEZ DIAKRATIKY): ");
-            fs.writeFileSync('./src/name.json', JSON.stringify({name: name}, null, 4))
+            fs.writeFileSync('./src/name.json', JSON.stringify([name], null, 4))
         }
         let customDatum;
         if (prompt("Chceš použít vlastní datum? (Y/N): ").toLowerCase() == "y") {
