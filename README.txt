@@ -12,3 +12,5 @@ Pokud máte nainstalovaný a extrahovaný, tak spusťte program DesetiPrstyHack.
 Obrázky se pak ukládají do složky FinalniObrazky
 
 POKUD NASTANE NĚJAKÁ CHYBA, TAK MI PIŠTE NA DISCORD (MĚLI BYSTE MĚ MÍT NA DISCORDU, JELIKOŽ TOHLE NENÍ VEŘEJNÝ PROGRAM)
+
+Program údajně nefunguje na nižších verzích Windowsu
